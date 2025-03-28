@@ -47,7 +47,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         padding: var(--ddd-spacing-4);
       }
       h3 span {
-        font-size: var(--ddd-card-list-label-font-size, var(--ddd-font-size-s));
+        font-size: var(--ddd-card-label-font-size, var(--ddd-font-size-s));
       }
     `];
   }
