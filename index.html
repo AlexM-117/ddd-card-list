@@ -1,41 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <base href="/" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="Description" content="Demonstration for ddd-card-list" />
 
-<head>
-  <base href="/">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="Description" content="Demonstration for ddd-card-list">
+    <style>
+      :root,
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #demo {
+        margin: var(--ddd-spacing-2);
+      }
+      ddd-card-list {
+        margin: var(--ddd-spacing-2);
+        border: var(--ddd-border-md);
+        border-radius: var(--ddd-radius-lg);
+      }
+      ddd-card-list:hover {
+        box-shadow: var(--ddd-boxShadow-sm);
+      }
+      #example {
+        --ddd-card-list-font-size: var(--ddd-font-size-l);
+        background-color: var(--ddd-accent-2);
+        color: var(--ddd-primary-17);
+      }
+    </style>
+    <title>ddd-card-list</title>
+  </head>
 
-  <style>
-    :root, html, body {
-      margin: 0;
-      padding: 0;
-    }
-    #demo {
-      margin: var(--ddd-spacing-2);
-    }
-    ddd-card-list {
-      margin: var(--ddd-spacing-2);
-      border: var(--ddd-border-md);
-      border-radius: var(--ddd-radius-lg);
-    }
-    ddd-card-list:hover {
-      box-shadow: var(--ddd-boxShadow-sm);
-    }
-    #example {
-      --ddd-card-list-font-size: var(--ddd-font-size-l);
-      background-color: var(--ddd-accent-2);
-      color: var(--ddd-primary-17);
-    }
-  </style>
-  <title>ddd-card-list</title>
-</head>
-
-<body>
-  <div id="demo">
-    <h1>ddd-card-list</h1>
-  </div>
-  <script type="module" src="./ddd-card-list.js"></script>
-</body>
+  <body>
+    <div id="demo">
+      <h1>ddd-card-list</h1>
+    </div>
+    <ddd-card-list></ddd-card-list>
+    <ddd-card></ddd-card>
+    <script type="module" src="./ddd-card-list.js"></script>
+    <script type="module" src="./ddd-card.js"></script>
+  </body>
 </html>
