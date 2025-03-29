@@ -86,17 +86,16 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         .title {
           font-size: 1.2rem;
           font-weight: bold;
-          margin: 8px 0;
           color: var(--ddd-theme-default-nittanyNavy);
         }
         .label {
           font-size: 0.9rem;
           color: black;
+          margin: 8px 0;
         }
         .link {
           display: inline-block;
           margin-top: 12px;
-          padding: 8px 16px;
           background-color: var(--ddd-theme-default-link);
           font-weight: bold;
           border-radius: 4px;
@@ -121,7 +120,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
     return html` <div class="card">
       <img class="image" src="${this.image}" alt="${this.title}" />
       <div class="line"></div>
-      <div class="title">${this.title}</div>
+      <h2 class="title">${this.title}</h2>
       <p class="label">${this.label}</p>
       <button class="link" @click="${this.linkClick}">Explore</button>
       <slot></slot>
