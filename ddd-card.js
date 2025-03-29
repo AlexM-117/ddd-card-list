@@ -93,7 +93,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           font-size: 0.9rem;
           color: black;
         }
-        .link-button {
+        .link {
           display: inline-block;
           margin-top: 12px;
           padding: 8px 16px;
@@ -105,11 +105,15 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           cursor: pointer;
           transition: background-color 0.3s ease-in-out;
         }
-        .link-button:hover {
+        .link:hover {
           background-color: #005a8d;
         }
       `,
     ];
+  }
+
+  linkClick() {
+    window.location = this.link;
   }
 
   // Lit render the HTML
@@ -119,11 +123,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
       <div class="line"></div>
       <div class="title">${this.title}</div>
       <p class="label">${this.label}</p>
-      ${this.link
-        ? html`<a class="link-button" href="${this.link}" target="_blank"
-            >Explore</a
-          >`
-        : ""}
+      <button class="link" @click="${this.linkClick}">Explore</button>
       <slot></slot>
     </div>`;
   }
