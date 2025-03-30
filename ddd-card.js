@@ -52,9 +52,6 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
       super.styles,
       css`
         :host {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
           color: var(--ddd-theme-primary);
           background-color: var(--ddd-theme-accent);
           font-family: var(--ddd-font-navigation);
@@ -62,47 +59,62 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           width: 300px;
           text-align: center;
         }
+        .card-container {
+          display: grid;
+          grid-template-columns: auto auto auto;
+          gap: 20px;
+          justify-content: center;
+          max-width: 1200px;
+        }
         .card {
-          width: 100%;
+          width: 300px;
           padding: var(--ddd-spacing-0);
           background: var(--ddd-theme-default-white);
-          border-radius: var(--ddd-radius-lg);
+          border-radius: var(--ddd-radius-md);
           display: flex;
           flex-direction: column;
-          align-items: center;
         }
         .image {
           width: 100%;
-          height: 180px;
+          height: 200px;
           object-fit: cover;
-          border-top-left-radius: var(--ddd-radius-lg);
-          border-top-right-radius: var(--ddd-radius-lg);
+          border-top-left-radius: var(--ddd-radius-md);
+          border-top-right-radius: var(--ddd-radius-md);
         }
         .line {
           height: 12px;
           width: 100%;
           background: var(--ddd-theme-default-nittanyNavy);
         }
+        .card-content {
+          display: flex;
+          flex-wrap: nowrap;
+          flex-direction: column;
+          padding: 12px;
+        }
         .title {
           font-size: 1.2rem;
           font-weight: bold;
           color: var(--ddd-theme-default-nittanyNavy);
+          text-align: left;
+          margin: 0;
         }
         .label {
           font-size: 0.9rem;
           color: black;
           margin: 8px 0;
+          text-align: left;
         }
         .link {
-          display: inline-block;
-          margin-top: 12px;
+          width: 100%;
           background-color: var(--ddd-theme-default-link);
-          font-weight: bold;
-          border-radius: 4px;
-          border: solid 2px var(--ddd-theme-default-link);
-          color: white;
+          color: var(--ddd-theme-default-white);
+          padding: 12px;
+          margin-top: 8px;
+          border-radius: var(--ddd-radius-sm);
+          border: none;
           cursor: pointer;
-          transition: background-color 0.3s ease-in-out;
+          transition: background-color 0.3s;
         }
         .link:hover {
           background-color: #005a8d;
@@ -117,12 +129,14 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
 
   // Lit render the HTML
   render() {
-    return html` <div class="card">
+    return html`<div class="card">
       <img class="image" src="${this.image}" alt="${this.title}" />
       <div class="line"></div>
-      <h2 class="title">${this.title}</h2>
-      <p class="label">${this.label}</p>
-      <button class="link" @click="${this.linkClick}">Explore</button>
+      <div class="card-content">
+        <h2 class="title">${this.title}</h2>
+        <p class="label">${this.label}</p>
+        <button class="link" @click="${this.linkClick}">Explore</button>
+      </div>
       <slot></slot>
     </div>`;
   }
