@@ -56,15 +56,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           background-color: var(--ddd-theme-accent);
           font-family: var(--ddd-font-navigation);
           border-radius: var(--ddd-radius-lg);
-          width: 300px;
           text-align: center;
-        }
-        .card-container {
-          display: grid;
-          grid-template-columns: auto auto auto;
-          gap: 20px;
-          justify-content: center;
-          max-width: 1200px;
         }
         .card {
           width: 300px;
@@ -87,9 +79,6 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           background: var(--ddd-theme-default-nittanyNavy);
         }
         .card-content {
-          display: flex;
-          flex-wrap: nowrap;
-          flex-direction: column;
           padding: 12px;
         }
         .title {
@@ -113,6 +102,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           margin-top: 8px;
           border-radius: var(--ddd-radius-sm);
           border: none;
+          font-size: 0.8rem;
           cursor: pointer;
           transition: background-color 0.3s;
         }
