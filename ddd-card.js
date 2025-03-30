@@ -46,6 +46,9 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
     };
   }
 
+  /*
+  Formatting nearly 1-to-1 visually, fix issues regarding uniform card sizes based on label text length
+  */
   // Lit scoped styles
   static get styles() {
     return [
@@ -60,6 +63,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         }
         .card {
           width: 300px;
+          min-height: 380px;
           padding: var(--ddd-spacing-0);
           background: var(--ddd-theme-default-white);
           border-radius: var(--ddd-radius-md);
@@ -80,6 +84,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         }
         .card-content {
           padding: 12px;
+          flex-grow: 1;
         }
         .title {
           font-size: 1.2rem;
@@ -93,6 +98,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           color: black;
           margin: 8px 0;
           text-align: left;
+          flex-grow: 1;
         }
         .link {
           width: 100%;
