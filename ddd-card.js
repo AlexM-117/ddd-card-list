@@ -109,6 +109,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           border-radius: var(--ddd-radius-sm);
           border: none;
           font-size: 0.8rem;
+          font-family: var(--ddd-font-navigation);
           cursor: pointer;
           transition: background-color 0.3s;
         }
