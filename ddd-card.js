@@ -63,7 +63,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         }
         .card {
           width: 300px;
-          min-height: 380px;
+          height: 100%;
           padding: var(--ddd-spacing-0);
           background: var(--ddd-theme-default-white);
           border-radius: var(--ddd-radius-md);
@@ -83,7 +83,10 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           background: var(--ddd-theme-default-nittanyNavy);
         }
         .card-content {
-          padding: 12px;
+          padding: 16px 16px 0 16px;
+          display: flex;
+          flex-direction: column;
+          flex: 1;
         }
         .title {
           font-size: 1.2rem;
@@ -100,11 +103,11 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           flex-grow: 1;
         }
         .link {
-          width: 100%;
+          width: 100% - 32%;
           background-color: var(--ddd-theme-default-link);
           color: var(--ddd-theme-default-white);
           padding: 12px;
-          margin-top: 8px;
+          margin: 24px 16px 16px 16px;
           border-radius: var(--ddd-radius-sm);
           border: none;
           font-size: 0.8rem;
@@ -131,8 +134,8 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
       <div class="card-content">
         <h2 class="title">${this.title}</h2>
         <p class="label">${this.label}</p>
-        <button class="link" @click="${this.linkClick}">Explore</button>
       </div>
+      <button class="link" @click="${this.linkClick}">Explore</button>
       <slot></slot>
     </div>`;
   }
