@@ -84,7 +84,6 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         }
         .card-content {
           padding: 12px;
-          flex-grow: 1;
         }
         .title {
           font-size: 1.2rem;
