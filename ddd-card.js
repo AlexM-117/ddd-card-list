@@ -46,9 +46,6 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
     };
   }
 
-  /*
-  Formatting nearly 1-to-1 visually, fix issues regarding uniform card sizes based on label text length
-  */
   // Lit scoped styles
   static get styles() {
     return [
@@ -62,7 +59,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           text-align: center;
         }
         .card {
-          width: 300px;
+          width: 310px;
           height: 100%;
           padding: var(--ddd-spacing-0);
           background: var(--ddd-theme-default-white);

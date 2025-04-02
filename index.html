@@ -33,10 +33,17 @@
         color: var(--ddd-primary-17);
       }
       .card-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        width: 100%;
+        /*Consider using padding for left and right of card list, find why to center cards but follow 3-card row*/
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.75rem;
+        max-width: 100%;
+        /*
+        padding-left: 46px;
+        padding-right: 46px;
+        margin-left: 98px;
+        margin-right: 98px;
+        */
       }
       /*Fix media query for sizing considerations > at 1024, goes down to 2 cards instead of remaining at 3, same for 2 cards
       /*Replace grid with flex again, get card to dynamically change based on screen with
