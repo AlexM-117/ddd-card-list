@@ -23,7 +23,6 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
     this.image = "";
     this.label = "";
     this.link = "";
-    // this.ddd_primary = "7";
 
     this.registerLocalization({
       context: this,
@@ -74,7 +73,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           border-top-left-radius: var(--ddd-radius-md);
           border-top-right-radius: var(--ddd-radius-md);
         }
-        .line {
+        .bar {
           height: 12px;
           width: 100%;
           background: var(--ddd-theme-default-nittanyNavy);
@@ -127,7 +126,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`<div class="card">
       <img class="image" src="${this.image}" alt="${this.title}" />
-      <div class="line"></div>
+      <div class="bar"></div>
       <div class="card-content">
         <h2 class="title">${this.title}</h2>
         <p class="label">${this.label}</p>

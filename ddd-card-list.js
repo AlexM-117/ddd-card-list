@@ -19,12 +19,9 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
 
   constructor() {
     super();
-    this.title = "";
-    this.t = this.t || {};
-    this.t = {
-      ...this.t,
-      title: "Title",
-    };
+    this.primaryColor = "";
+    this.accentColor = "";
+
     this.registerLocalization({
       context: this,
       localesPath:
@@ -38,7 +35,8 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
   static get properties() {
     return {
       ...super.properties,
-      title: { type: String },
+      primaryColor: { type: Number },
+      accentColor: { type: Number },
     };
   }
 
@@ -69,10 +67,23 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
 
   // Lit render the HTML
   render() {
-    return html` <div class="wrapper">
-      <h3><span>${this.t.title}:</span> ${this.title}</h3>
-      <slot></slot>
-    </div>`;
+    const dataPrimary = this.getAttribute("data-primary");
+    const dataAccent = this.getAttribute("data-accent");
+
+    this.shadowRoot.innerHTML = `
+    <style>
+      :host {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: ${this.accentColor};
+      }
+    </style>
+    <slot></slot>
+    `;
+  }
+
+  connectedCallBack() {
+    this.render();
   }
 
   /**
