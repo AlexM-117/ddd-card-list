@@ -23,6 +23,8 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
     this.image = "";
     this.label = "";
     this.link = "";
+    this.dddPrimary = "";
+    this.dddAccent = "";
 
     this.registerLocalization({
       context: this,
@@ -41,7 +43,8 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
       image: { type: String },
       label: { type: String },
       link: { type: String },
-      // ddd_primary: { type: String, attribute: "ddd-primary" }, > implement later, focus on ddd-card format
+      dddPrimary: { type: String, attribute: "ddd-primary" },
+      dddAccent: { type: String, attribute: "ddd-accent" },
     };
   }
 
@@ -120,6 +123,12 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
 
   linkClick() {
     window.location = this.link;
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has("dddPrimary")) {
+      this.style.setProperty("ddd-primary", this.dddPrimary);
+    }
   }
 
   // Lit render the HTML

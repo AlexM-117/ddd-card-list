@@ -19,8 +19,8 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
 
   constructor() {
     super();
-    this.primaryColor = "";
-    this.accentColor = "";
+    this.dddPrimary = "";
+    this.dddAccent = "";
 
     this.registerLocalization({
       context: this,
@@ -35,8 +35,8 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
   static get properties() {
     return {
       ...super.properties,
-      primaryColor: { type: Number },
-      accentColor: { type: Number },
+      dddPrimary: { type: String, attribute: "ddd-primary" },
+      dddAccent: { type: String, attribute: "ddd-accent" },
     };
   }
 
@@ -67,23 +67,18 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
 
   // Lit render the HTML
   render() {
-    const dataPrimary = this.getAttribute("data-primary");
-    const dataAccent = this.getAttribute("data-accent");
-
-    this.shadowRoot.innerHTML = `
-    <style>
-      :host {
-        display: flex;
-        flex-wrap: wrap;
-        background-color: ${this.accentColor};
-      }
-    </style>
-    <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
-  connectedCallBack() {
-    this.render();
+  updated(changedProperties) {
+    if (changedProperties.has("dddAccent")) {
+      this.style.setProperty("--ddd-accent-color", this.dddAccent);
+    }
+    if (changedProperties.has("dddPrimary")) {
+      this.shadowRoot.querySelectorAll("ddd-card").forEach((card) => {
+        card.dddPrimary = this.dddPrimary;
+      });
+    }
   }
 
   /**
