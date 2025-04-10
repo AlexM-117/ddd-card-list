@@ -79,7 +79,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         .bar {
           height: 12px;
           width: 100%;
-          background: var(--ddd-theme-default-nittanyNavy);
+          background: var(--ddd-primary-color, #0072ce);
         }
         .card-content {
           padding: 16px 16px 0 16px;

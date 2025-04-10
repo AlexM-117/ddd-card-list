@@ -46,20 +46,12 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
       super.styles,
       css`
         :host {
-          display: block;
-          color: var(--ddd-theme-primary);
-          background-color: var(--ddd-theme-accent);
+          display: flex;
+          flex-wrap: wrap;
+          background-color: var(--ddd-accent-color, #f0f0f0);
+          padding: 10px;
+          gap: 10px;
           font-family: var(--ddd-font-navigation);
-        }
-        .wrapper {
-          margin: var(--ddd-spacing-2);
-          padding: var(--ddd-spacing-4);
-        }
-        h3 span {
-          font-size: var(
-            --ddd-card-list-label-font-size,
-            var(--ddd-font-size-s)
-          );
         }
       `,
     ];
