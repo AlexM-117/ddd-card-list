@@ -79,7 +79,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         .bar {
           height: 12px;
           width: 100%;
-          background: var(--ddd-primary-color, #0072ce);
+          background: var(--ddd-primary);
         }
         .card-content {
           padding: 16px 16px 0 16px;
@@ -127,7 +127,10 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
 
   updated(changedProperties) {
     if (changedProperties.has("dddPrimary")) {
-      this.style.setProperty("ddd-primary", this.dddPrimary);
+      this.style.setProperty(
+        "--ddd-primary",
+        `var(--ddd-primary-${this.dddPrimary})`
+      );
     }
   }
 

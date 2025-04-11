@@ -61,18 +61,36 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html` <slot></slot> `;
   }
+  updated(changedProperties) {
+    if (changedProperties.has("dddPrimary")) {
+      this.style.setProperty(
+        "--ddd-primary",
+        `var(--ddd-primary-${this.dddPrimary})`
+      );
+    }
+  }
 
+  /*
   updated(changedProperties) {
     if (changedProperties.has("dddAccent")) {
       this.style.setProperty("--ddd-accent-color", this.dddAccent);
     }
     if (changedProperties.has("dddPrimary")) {
-      this.shadowRoot.querySelectorAll("ddd-card").forEach((card) => {
+      document.querySelectorAll("ddd-card").forEach((card) => {
         card.dddPrimary = this.dddPrimary;
       });
     }
   }
+    */
 
+  /*
+  document.querySelectorAll(ddd-card).forEach(card =>
+    console.log(card)
+    console.log("this.dddprimary: " + this.primary)
+    if this.dddprimary
+    item.style.setProperty(bar, var--ddd-primary-${this.dddPrimary})    
+    )
+    */
   /**
    * haxProperties integration via file reference
    */
