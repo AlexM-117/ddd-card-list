@@ -125,6 +125,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
     window.location = this.link;
   }
 
+  //Issues with primary "disappearing" after changing
   updated(changedProperties) {
     if (changedProperties.has("dddPrimary")) {
       this.style.setProperty(
