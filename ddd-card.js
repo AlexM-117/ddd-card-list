@@ -58,20 +58,24 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
           background-color: var(--ddd-theme-accent);
           font-family: var(--ddd-font-navigation);
           border-radius: var(--ddd-radius-lg);
-          text-align: center;
+          display: block;
+          width: 100%;
         }
         .card {
-          width: 310px;
+          width: 100%;
           height: 100%;
           padding: var(--ddd-spacing-0);
           background: var(--ddd-theme-default-white);
           border-radius: var(--ddd-radius-md);
           display: flex;
           flex-direction: column;
+          box-sizing: border-box;
+          overflow: hidden;
+          box-shadow: 0px 4px 8px 0px #d3d3d3;
         }
         .image {
           width: 100%;
-          height: 200px;
+          height: auto;
           object-fit: cover;
           border-top-left-radius: var(--ddd-radius-md);
           border-top-right-radius: var(--ddd-radius-md);
@@ -79,7 +83,8 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         .bar {
           height: 12px;
           width: 100%;
-          background: var(--ddd-primary);
+          //background: var(--ddd-primary);
+          background: var(--ddd-theme-default-nittanyNavy);
         }
         .card-content {
           padding: 16px 16px 0 16px;
@@ -131,6 +136,12 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
       this.style.setProperty(
         "--ddd-primary",
         `var(--ddd-primary-${this.dddPrimary})`
+      );
+    }
+    if (changedProperties.has("dddAccent")) {
+      this.style.setProperty(
+        "--ddd-accent",
+        `var(--ddd-accent-${this.dddAccent})`
       );
     }
   }

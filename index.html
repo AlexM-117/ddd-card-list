@@ -20,12 +20,8 @@
         margin: var(--ddd-spacing-2);
       }
       ddd-card-list {
-        margin: var(--ddd-spacing-2);
         border: var(--ddd-border-md);
-        border-radius: var(--ddd-radius-lg);
-      }
-      ddd-card-list:hover {
-        box-shadow: var(--ddd-boxShadow-sm);
+        border-radius: var(--ddd-radius-sm);
       }
       #example {
         --ddd-card-list-font-size: var(--ddd-font-size-l);
@@ -33,31 +29,24 @@
         color: var(--ddd-primary-17);
       }
       .card-container {
-        /*Consider using padding for left and right of card list, find why to center cards but follow 3-card row*/
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         gap: 1.75rem;
-        max-width: 100%;
-        /*
-        padding-left: 46px;
-        padding-right: 46px;
-        margin-left: 98px;
-        margin-right: 98px;
-        */
+        padding: 1.75rem;
+        width: 100%;
+        box-sizing: border-box;
       }
-      /*Fix media query for sizing considerations > at 1024, goes down to 2 cards instead of remaining at 3, same for 2 cards
-      /*Replace grid with flex again, get card to dynamically change based on screen with
-      /*@media (max-width: 1023px) {
+      
+      @media (max-width: 1024px) {
         .card-container {
           grid-template-columns: repeat(2, 1fr);
         }
       }
-      @media (max-width: 767px) {
+      @media (max-width: 768px) {
         .card-container {
           grid-template-columns: 1fr;
         }
       }
-        */
     </style>
     <title>ddd-card-list</title>
   </head>

@@ -46,11 +46,8 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
       super.styles,
       css`
         :host {
-          display: flex;
-          flex-wrap: wrap;
-          background-color: var(--ddd-accent-color, #f0f0f0);
-          padding: 10px;
-          gap: 10px;
+          display: block;
+          background-color: var(--ddd-accent, #f0f0f0);
           font-family: var(--ddd-font-navigation);
         }
       `,
@@ -68,29 +65,14 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
         `var(--ddd-primary-${this.dddPrimary})`
       );
     }
-  }
-
-  /*
-  updated(changedProperties) {
     if (changedProperties.has("dddAccent")) {
-      this.style.setProperty("--ddd-accent-color", this.dddAccent);
-    }
-    if (changedProperties.has("dddPrimary")) {
-      document.querySelectorAll("ddd-card").forEach((card) => {
-        card.dddPrimary = this.dddPrimary;
-      });
+      this.style.setProperty(
+        "--ddd-accent",
+        `var(--ddd-accent-${this.dddAccent})`
+      );
     }
   }
-    */
 
-  /*
-  document.querySelectorAll(ddd-card).forEach(card =>
-    console.log(card)
-    console.log("this.dddprimary: " + this.primary)
-    if this.dddprimary
-    item.style.setProperty(bar, var--ddd-primary-${this.dddPrimary})    
-    )
-    */
   /**
    * haxProperties integration via file reference
    */
