@@ -47,8 +47,26 @@ export class DddCardList extends DDDPulseEffectSuper(I18NMixin(DDD)) {
       css`
         :host {
           display: block;
-          background-color: var(--ddd-accent);
           font-family: var(--ddd-font-navigation);
+        }
+        .card-list {
+          background-color: var(--ddd-accent);
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.75rem;
+          padding: 1.75rem;
+          width: 100%;
+          box-sizing: border-box;
+        }
+        @media (max-width: 1024px) {
+          .card-list {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 768px) {
+          .card-list {
+            grid-template-columns: 1fr;
+          }
         }
       `,
     ];
@@ -56,7 +74,11 @@ export class DddCardList extends DDDPulseEffectSuper(I18NMixin(DDD)) {
 
   // Lit render the HTML
   render() {
-    return html` <slot></slot> `;
+    return html`
+      <div class="card-list">
+        <slot></slot>
+      </div>
+    `;
   }
   updated(changedProperties) {
     if (changedProperties.has("dddPrimary")) {
@@ -65,7 +87,9 @@ export class DddCardList extends DDDPulseEffectSuper(I18NMixin(DDD)) {
         `var(--ddd-primary-${this.dddPrimary})`
       );
       this.querySelectorAll("ddd-card").forEach((card) => {
-        card.dddPrimary = this.dddPrimary;
+        if (!card.hasAttribute("ddd-primary")) {
+          card.dddPrimary = this.dddPrimary;
+        }
       });
     }
     if (changedProperties.has("dddAccent")) {

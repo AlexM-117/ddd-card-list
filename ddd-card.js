@@ -55,7 +55,7 @@ export class DddCard extends DDDPulseEffectSuper(I18NMixin(DDD)) {
       css`
         :host {
           color: var(--ddd-theme-primary);
-          background-color: var(--ddd-theme-accent);
+          background-color: var(--ddd-accent);
           font-family: var(--ddd-font-navigation);
           border-radius: var(--ddd-radius-lg);
           display: block;
@@ -71,7 +71,7 @@ export class DddCard extends DDDPulseEffectSuper(I18NMixin(DDD)) {
           flex-direction: column;
           box-sizing: border-box;
           overflow: hidden;
-          box-shadow: 0px 4px 8px 0px #d3d3d3;
+          box-shadow: 0px 4px 8px 0px var(--ddd-theme-default-limestoneGray);
         }
         .image {
           width: 100%;
