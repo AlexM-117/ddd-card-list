@@ -111,15 +111,15 @@ export class DddCard extends DDDPulseEffectSuper(I18NMixin(DDD)) {
           color: var(--ddd-theme-default-white);
           padding: 12px;
           margin: 24px 16px 16px 16px;
-          border-radius: var(--ddd-radius-sm);
+          border-radius: var(--ddd-radius-xs);
           border: none;
           font-size: 0.8rem;
           font-family: var(--ddd-font-navigation);
           cursor: pointer;
-          transition: background-color 0.3s;
         }
         .link:hover {
-          background-color: #005a8d;
+          background-color: var(--ddd-theme-default-nittanyNavy);
+          transition: background-color 0.3s ease-out;
         }
       `,
     ];
