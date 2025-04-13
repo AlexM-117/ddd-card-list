@@ -2,8 +2,8 @@
  * Copyright 2025 Alexander Manbeck
  * @license Apache-2.0, see LICENSE for full text.
  */
-import { LitElement, html, css } from "lit";
-import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
+import { html, css } from "lit";
+import { DDD, DDDPulseEffectSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 /**
@@ -12,7 +12,7 @@ import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
  * @demo index.html
  * @element ddd-card-list
  */
-export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
+export class DddCardList extends DDDPulseEffectSuper(I18NMixin(DDD)) {
   static get tag() {
     return "ddd-card-list";
   }
@@ -47,7 +47,7 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
       css`
         :host {
           display: block;
-          background-color: var(--ddd-accent, #f0f0f0);
+          background-color: var(--ddd-accent);
           font-family: var(--ddd-font-navigation);
         }
       `,
@@ -64,6 +64,9 @@ export class DddCardList extends DDDSuper(I18NMixin(LitElement)) {
         "--ddd-primary",
         `var(--ddd-primary-${this.dddPrimary})`
       );
+      this.querySelectorAll("ddd-card").forEach((card) => {
+        card.dddPrimary = this.dddPrimary;
+      });
     }
     if (changedProperties.has("dddAccent")) {
       this.style.setProperty(

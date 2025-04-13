@@ -2,8 +2,8 @@
  * Copyright 2025 Alexander Manbeck
  * @license Apache-2.0, see LICENSE for full text.
  */
-import { LitElement, html, css } from "lit";
-import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
+import { html, css } from "lit";
+import { DDD, DDDPulseEffectSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 /**
@@ -12,7 +12,7 @@ import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
  * @demo index.html
  * @element ddd-card
  */
-export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
+export class DddCard extends DDDPulseEffectSuper(I18NMixin(DDD)) {
   static get tag() {
     return "ddd-card";
   }
@@ -83,8 +83,7 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
         .bar {
           height: 12px;
           width: 100%;
-          //background: var(--ddd-primary);
-          background: var(--ddd-theme-default-nittanyNavy);
+          background: var(--ddd-primary);
         }
         .card-content {
           padding: 16px 16px 0 16px;
@@ -130,7 +129,6 @@ export class DddCard extends DDDSuper(I18NMixin(LitElement)) {
     window.location = this.link;
   }
 
-  //Issues with primary "disappearing" after changing
   updated(changedProperties) {
     if (changedProperties.has("dddPrimary")) {
       this.style.setProperty(
