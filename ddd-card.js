@@ -93,10 +93,10 @@ export class DddCard extends DDDPulseEffectSuper(I18NMixin(DDD)) {
         }
         .title {
           font-size: 1.2rem;
-          font-weight: bold;
+          font-weight: var(--ddd-font-weight-bold);
           color: var(--ddd-theme-default-nittanyNavy);
           text-align: left;
-          margin: 0;
+          margin: var(--ddd-spacing-0);
         }
         .label {
           font-size: 0.9rem;
@@ -109,7 +109,7 @@ export class DddCard extends DDDPulseEffectSuper(I18NMixin(DDD)) {
           width: 100% - 32%;
           background-color: var(--ddd-theme-default-link);
           color: var(--ddd-theme-default-white);
-          padding: 12px;
+          padding: var(--ddd-spacing-3);
           margin: 24px 16px 16px 16px;
           border-radius: var(--ddd-radius-xs);
           border: none;
